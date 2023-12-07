@@ -2,15 +2,33 @@
 Debian 12 Quickstart 
 =====================================
 
+
+Install the basic services
+==========================
+
+.. code-block:: bash
+
+   sudo apt install firewalld nfs-kernel-server tftpd-hpa isc-dhcp-server
+
+
+.. note::
+
+   If you get an error message concerning *isc-dhcp-server.service* you 
+   probably need to configure the network intarface that isc-dhcp-server 
+   will listen to. Run ``sudo dpkg-reconfigure isc-dhcp-server`` and enter
+   the name of your cluster's private network interface (e.g. enp2s0).
+
+
+
 Install Warewulf and dependencies
 =================================
 
+
 .. code-block:: bash
  
-  sudo apt install build-essential curl unzip
+   sudo apt install build-essential curl unzip
   
-  sudo apt install git golang tftpd-hpa isc-dhcp-server nfs-kernel-server \
-  		 libnfs-utils firewalld libgpgme-dev libassuan-dev
+   sudo apt install git golang libnfs-utils libgpgme-dev libassuan-dev
 
 
    mkdir ~/git
@@ -20,20 +38,6 @@ Install Warewulf and dependencies
    git checkout main # or switch to a tag like 'v4.4.0'
    make all && sudo make install
 
-
-Install and configure dhcp-server
----------------------------------
-
-.. code-block:: bash
-
-   sudo apt install isc-dhcp-server
-
-If you get an error message you probably need to configure the
-network intarface that isc-dhcp-server will listen to:
-
-.. code-block:: bash
-
-   sudo dpkg-reconfigure isc-dhcp-server
 
 
 Configure firewalld
@@ -91,10 +95,6 @@ address of your cluster's private network interface:
 		mount options: defaults
 		mount: false
 	  systemd name: nfs-server  
-    container mounts:
-      - source: /etc/resolv.conf
-        dest: /etc/resolv.conf
-        readonly: true
 
 .. note::
 
