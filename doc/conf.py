@@ -6,9 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Example'
-copyright = 'workshop participant'
-author = 'workshop participant'
+project = 'Trying Warewulf 4 on Debian Linux'
+copyright = ''
+author = 'C Felipe S Pinheiro'
 release = '0.1'
 
 
