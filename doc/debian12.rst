@@ -95,10 +95,6 @@ address of your cluster's private network interface:
 		mount options: defaults
 		mount: false
 	  systemd name: nfs-server  
-    container mounts:
-      - source: /etc/resolv.conf
-        dest: /etc/resolv.conf
-        readonly: true
 
 .. note::
 
