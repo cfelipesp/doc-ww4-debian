@@ -16,7 +16,7 @@ Install the basic services
    If you get an error message concerning *isc-dhcp-server.service* you 
    probably need to configure the network intarface that isc-dhcp-server 
    will listen to. Run ``sudo dpkg-reconfigure isc-dhcp-server`` and enter
-   the name of your cluster's private network interface (e.g. enp2s0).
+   the name of your cluster's private network interface (e.g. enp2s0). After that, you might also need to run ``sudo systemctl enable isc-hdcp-server``.
 
 
 
@@ -79,7 +79,7 @@ address of your cluster's private network interface:
 	  enabled: true
 	  range start: 192.168.200.50
 	  range end: 192.168.200.99
-	  systemd name: dnsmasq
+	  systemd name: isc-dhcp-server
 	tftp:
 	  enabled: true
 	  systemd name: tftpd-hpa
