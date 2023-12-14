@@ -16,7 +16,7 @@ Install the basic services
    If you get an error message concerning *isc-dhcp-server.service* you 
    probably need to configure the network intarface that isc-dhcp-server 
    will listen to. Run ``sudo dpkg-reconfigure isc-dhcp-server`` and enter
-   the name of your cluster's private network interface (e.g. enp2s0). After that, you might also need to run ``sudo systemctl enable isc-hdcp-server``.
+   the name of your cluster's private network interface (e.g. enp2s0). After that, you might also need to run ``sudo systemctl enable isc-dhcp-server``.
 
 
 
@@ -139,8 +139,7 @@ default running kernel from the controller node and set both in the
 
 .. code-block:: bash
 
-   #sudo wwctl container import docker://ghcr.io/hpcng/warewulf-debian:12.0 debian-12
-   sudo wwctl container import docker://docker.io/felpin1/warewulf-debian:12.0 debian-12
+   wwctl container import docker://ghcr.io/hpcng/warewulf-debian:12.0 debian-12.0
 
 
 Set up the default node profile
@@ -155,7 +154,7 @@ the ``default`` node profile:
 
 .. code-block:: bash
 
-   sudo wwctl profile set --yes --container debian-12 "default"
+   sudo wwctl profile set --yes --container debian-12.0 "default"
    
 
 Next we set some default networking configurations for the first
