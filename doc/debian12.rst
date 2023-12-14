@@ -200,4 +200,11 @@ typing the following:
 
    sudo wwctl node list -a n0000.cluster
 
-Turn on your compute node and watch it boot!
+To make node changes effective, it is a good practice to update warewulf 
+overlays with the following command:
+
+.. code-block:: bash
+
+   sudo wwctl overlay build
+
+Now, turn on your compute node and watch it boot!
